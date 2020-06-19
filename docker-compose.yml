@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: hellodockerworld
+    ports:
+      - "3306:3306"
+    volumes:
+      - datadir:/var/lib/mysql
+  web:
+    build: ./
+    restart: always
+    ports:
+      - "8080:8080"
+    links:
+      - mariadb:mariadb
+volumes:
+  datadir:
