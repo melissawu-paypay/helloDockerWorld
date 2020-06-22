@@ -1,1 +1,0 @@
-ALTER TABLE mydata RENAME dockerworlddata;
