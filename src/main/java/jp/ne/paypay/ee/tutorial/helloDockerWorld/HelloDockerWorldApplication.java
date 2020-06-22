@@ -1,4 +1,4 @@
-package com.melissaw.example.helloDockerWorld;
+package jp.ne.paypay.ee.tutorial.helloDockerWorld;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

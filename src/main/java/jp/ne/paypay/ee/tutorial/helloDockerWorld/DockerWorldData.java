@@ -1,20 +1,20 @@
-package com.melissaw.example.helloDockerWorld;
+package jp.ne.paypay.ee.tutorial.helloDockerWorld;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "mydata")
-public class MyData {
+@Table(name = "dockerworlddata")
+public class DockerWorldData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Date dttm;
     private String value;
 
-    public MyData(){}
+    public DockerWorldData(){}
 
-    public MyData(Date dttm, String value) {
+    public DockerWorldData(Date dttm, String value) {
         this.dttm = dttm;
         this.value = value;
     }
@@ -37,7 +37,7 @@ public class MyData {
     @Override
     public String toString() {
         return String.format(
-                "MyData[id=%d, dttm='%s', value='%s']",
+                "DockerWorldData[id=%d, dttm='%s', value='%s']",
                 id, dttm, value);
     }
 }

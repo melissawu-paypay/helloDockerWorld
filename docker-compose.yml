@@ -1,7 +1,7 @@
 version: '3'
 services:
-  mariadb:
-    image: mariadb:10.4
+  mymariadb:
+    image: mariadb:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -9,13 +9,16 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - datadir:/var/lib/mysql
-  web:
+      - datadir-mariadb:/var/lib/mysql
+  app:
     build: ./
-    restart: always
     ports:
       - "8080:8080"
+    depends_on:
+      - mymariadb
     links:
-      - mariadb:mariadb
+      - mymariadb:mymariadb
+    environment:
+      SQL_SERVICE_HOST: mymariadb
 volumes:
-  datadir:
+  datadir-mariadb:
